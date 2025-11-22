@@ -29,7 +29,7 @@ const Achievements = () => {
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl font-bold text-center mb-12 scroll-reveal">
           Achievements & Certifications
-          <div className="w-20 h-1 bg-gradient-to-r from-emerald-500 to-teal-500 mx-auto mt-4 rounded"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-pink-500 to-rose-500 mx-auto mt-4 rounded"></div>
         </h2>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

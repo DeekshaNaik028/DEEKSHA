@@ -19,10 +19,10 @@ const Navigation = ({ scrolled }) => {
         {/* Logo with animation */}
         <a href="#home" className="group flex items-center gap-3">
           <div className="relative">
-            <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-lg flex items-center justify-center font-bold text-white text-xl group-hover:scale-110 transition-transform">
+            <div className="w-10 h-10 bg-gradient-to-br from-pink-500 to-rose-500 rounded-lg flex items-center justify-center font-bold text-white text-xl group-hover:scale-110 transition-transform">
               DN
             </div>
-            <div className="absolute inset-0 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-lg blur opacity-50 group-hover:opacity-75 transition-opacity"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-pink-500 to-rose-500 rounded-lg blur opacity-50 group-hover:opacity-75 transition-opacity"></div>
           </div>
           <span className="text-xl font-space font-bold text-gradient hidden sm:block">
             Deeksha Naik
@@ -35,10 +35,10 @@ const Navigation = ({ scrolled }) => {
             <li key={link} className="animate-fade-in-up" style={{ animationDelay: `${idx * 0.1}s` }}>
               <a 
                 href={`#${link.toLowerCase()}`}
-                className="relative text-slate-200 hover:text-emerald-400 transition-colors font-medium group"
+                className="relative text-slate-200 hover:text-pink-400 transition-colors font-medium group"
               >
                 {link}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-500 to-teal-500 group-hover:w-full transition-all duration-300"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-pink-500 to-rose-500 group-hover:w-full transition-all duration-300"></span>
               </a>
             </li>
           ))}
@@ -47,7 +47,7 @@ const Navigation = ({ scrolled }) => {
         {/* Mobile Menu Button */}
         <button 
           onClick={toggleMenu}
-          className="md:hidden text-slate-200 hover:text-emerald-400 transition-colors focus:outline-none z-50 relative w-10 h-10 flex items-center justify-center"
+          className="md:hidden text-slate-200 hover:text-pink-400 transition-colors focus:outline-none z-50 relative w-10 h-10 flex items-center justify-center"
           aria-label="Toggle menu"
         >
           <div className="relative w-6 h-5">
@@ -70,10 +70,10 @@ const Navigation = ({ scrolled }) => {
               <a 
                 href={`#${link.toLowerCase()}`}
                 onClick={closeMenu}
-                className="block text-slate-200 hover:text-emerald-400 transition-colors font-medium py-2 hover:translate-x-2 transition-transform"
+                className="block text-slate-200 hover:text-pink-400 transition-colors font-medium py-2 hover:translate-x-2 transition-transform"
               >
                 <span className="flex items-center gap-3">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+                  <span className="w-2 h-2 rounded-full bg-pink-500"></span>
                   {link}
                 </span>
               </a>
@@ -84,7 +84,7 @@ const Navigation = ({ scrolled }) => {
               href="/DeekshaNaik_Resume.pdf"
               download
               onClick={closeMenu}
-              className="block text-center px-6 py-3 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-full font-semibold hover:shadow-lg hover:shadow-emerald-500/50 transition-all"
+              className="block text-center px-6 py-3 bg-gradient-to-r from-pink-600 to-rose-600 rounded-full font-semibold hover:shadow-lg hover:shadow-pink-500/50 transition-all"
             >
               Download Resume
             </a>

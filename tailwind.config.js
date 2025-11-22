@@ -8,9 +8,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#10b981',      // Emerald green
-        secondary: '#14b8a6',    // Teal
-        accent: '#06b6d4',       // Cyan
+        primary: '#ec4899',      // Pink
+        secondary: '#f472b6',    // Light pink
+        accent: '#fb7185',       // Rose
         dark: '#0f172a',         // Dark blue
         darker: '#020617',       // Darker blue
       },

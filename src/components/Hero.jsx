@@ -32,16 +32,16 @@ const Hero = () => {
     <header id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden grid-background">
       {/* Animated background gradient */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-emerald-500 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-teal-500 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/4 right-1/3 w-64 h-64 bg-cyan-500 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-pink-500 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-rose-500 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/4 right-1/3 w-64 h-64 bg-fuchsia-500 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>
 
       {/* Floating particles */}
       {particles.map(particle => (
         <div
           key={particle.id}
-          className="particle bg-emerald-500/20 animate-particle-float"
+          className="particle bg-pink-500/20 animate-particle-float"
           style={{
             width: `${particle.size}px`,
             height: `${particle.size}px`,
@@ -55,13 +55,13 @@ const Hero = () => {
       <div className="text-center z-10 px-6 max-w-5xl">
         {/* Name with enhanced animation */}
         <div className="mb-4 animate-fade-in-up">
-          <div className="inline-block mb-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/30 rounded-full text-emerald-400 text-sm font-mono animate-glow">
+          <div className="inline-block mb-2 px-4 py-2 bg-pink-500/10 border border-pink-500/30 rounded-full text-pink-400 text-sm font-mono animate-glow">
             Hello, I'm
           </div>
         </div>
         
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 font-space animate-fade-in-up delay-100">
-          <span className="inline-block animate-gradient bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent neon-text">
+          <span className="inline-block animate-gradient bg-gradient-to-r from-pink-400 via-rose-400 to-fuchsia-400 bg-clip-text text-transparent neon-text">
             Deeksha Keshav Naik
           </span>
         </h1>
@@ -69,37 +69,37 @@ const Hero = () => {
         {/* Typing animation for role */}
         <div className="h-12 mb-6 animate-fade-in-up delay-200">
           <p className="text-xl md:text-2xl text-slate-400 font-mono">
-            <span className="text-emerald-400">&lt;</span>
+            <span className="text-pink-400">&lt;</span>
             {typedText}
             <span className="animate-pulse">|</span>
-            <span className="text-emerald-400">/&gt;</span>
+            <span className="text-pink-400">/&gt;</span>
           </p>
         </div>
         
         <p className="text-base md:text-lg text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed animate-fade-in-up delay-300">
-          Passionate about building <span className="text-emerald-400 font-semibold">scalable applications</span> with modern frameworks, 
-          <span className="text-emerald-400 font-semibold"> AI integration</span>, and 
-          <span className="text-emerald-400 font-semibold"> DevOps automation</span>
+          Passionate about building <span className="text-pink-400 font-semibold">scalable applications</span> with modern frameworks, 
+          <span className="text-pink-400 font-semibold"> AI integration</span>, and 
+          <span className="text-pink-400 font-semibold"> DevOps automation</span>
         </p>
         
         <div className="flex gap-4 justify-center flex-wrap animate-fade-in-up delay-400">
           <a 
             href="#projects" 
-            className="px-8 py-4 border-2 border-emerald-500 rounded-full font-semibold hover:bg-emerald-500 transition-all hover:-translate-y-1 magnetic-button glass-effect"
+            className="px-8 py-4 border-2 border-pink-500 rounded-full font-semibold hover:bg-pink-500 transition-all hover:-translate-y-1 magnetic-button glass-effect"
           >
             <span className="relative z-10">View Projects</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-teal-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-rose-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
           </a>
           <a 
             href="#contact" 
-            className="px-8 py-4 border-2 border-emerald-500 rounded-full font-semibold hover:bg-emerald-500 transition-all hover:-translate-y-1 magnetic-button glass-effect"
+            className="px-8 py-4 border-2 border-pink-500 rounded-full font-semibold hover:bg-pink-500 transition-all hover:-translate-y-1 magnetic-button glass-effect"
           >
             Get In Touch
           </a>
           <a 
             href="/DEEKSHA KESHAV NAIK(RESUME).pdf" 
             download
-            className="px-8 py-4 border-2 border-emerald-500 rounded-full font-semibold hover:bg-emerald-500 transition-all hover:-translate-y-1 magnetic-button glass-effect"
+            className="px-8 py-4 border-2 border-pink-500 rounded-full font-semibold hover:bg-pink-500 transition-all hover:-translate-y-1 magnetic-button glass-effect"
           >
             <span className="flex items-center gap-2">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -115,7 +115,7 @@ const Hero = () => {
           {['React', 'Python', 'FastAPI', 'MongoDB', 'AI/ML', 'DevOps'].map((tech, idx) => (
             <span 
               key={tech}
-              className="px-4 py-2 bg-slate-800/50 border border-emerald-500/20 rounded-lg text-sm text-slate-300 hover:border-emerald-500 hover:text-emerald-400 transition-all cursor-default font-mono animate-scale-in"
+              className="px-4 py-2 bg-slate-800/50 border border-pink-500/20 rounded-lg text-sm text-slate-300 hover:border-pink-500 hover:text-pink-400 transition-all cursor-default font-mono animate-scale-in"
               style={{ animationDelay: `${0.6 + idx * 0.1}s` }}
             >
               {tech}
@@ -127,8 +127,8 @@ const Hero = () => {
       {/* Animated scroll indicator */}
       <div className="absolute bottom-10 translate-x-1/2 animate-bounce">
         <div className="flex flex-col items-center gap-2">
-          <span className="text-emerald-400 text-sm font-mono">Scroll Down</span>
-          <svg className="w-6 h-6 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <span className="text-pink-400 text-sm font-mono">Scroll Down</span>
+          <svg className="w-6 h-6 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
         </div>
