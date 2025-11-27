@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DN Favicon Generator</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        h1 {
+            background: linear-gradient(135deg, #ec4899, #f472b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+        
+        .preview-section {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 40px 0;
+        }
+        
+        .preview-card {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(236, 72, 153, 0.3);
+            border-radius: 16px;
+            padding: 30px;
+            min-width: 200px;
+        }
+        
+        .preview-card h3 {
+            color: #ec4899;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        canvas {
+            border: 2px solid #334155;
+            border-radius: 8px;
+            image-rendering: pixelated;
+        }
+        
+        .controls {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 30px 0;
+            background: rgba(30, 41, 59, 0.5);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(236, 72, 153, 0.3);
+        }
+        
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        label {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            min-width: 100px;
+            text-align: right;
+        }
+        
+        input[type="color"] {
+            width: 60px;
+            height: 40px;
+            border: 2px solid #334155;
+            border-radius: 8px;
+            cursor: pointer;
+            background: transparent;
+        }
+        
+        input[type="text"] {
+            padding: 10px 15px;
+            background: rgba(15, 23, 42, 0.5);
+            border: 2px solid #334155;
+            border-radius: 8px;
+            color: #e2e8f0;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            width: 100px;
+        }
+        
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #ec4899;
+        }
+        
+        button {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #ec4899, #f472b6);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-size: 1rem;
+            margin: 10px;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(236, 72, 153, 0.4);
+        }
+        
+        button:active {
+            transform: translateY(0);
+        }
+        
+        .instructions {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(236, 72, 153, 0.3);
+            border-radius: 16px;
+            padding: 25px;
+            text-align: left;
+            margin-top: 30px;
+        }
+        
+        .instructions h3 {
+            color: #ec4899;
+            margin-bottom: 15px;
+        }
+        
+        .instructions ol {
+            color: #cbd5e1;
+            line-height: 1.8;
+            padding-left: 20px;
+        }
+        
+        .instructions code {
+            background: rgba(15, 23, 42, 0.8);
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: #f472b6;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>DN Favicon Generator</h1>
+        
+        <div class="controls">
+            <div class="control-group">
+                <label>Text:</label>
+                <input type="text" id="text" value="DN" maxlength="2">
+            </div>
+            <div class="control-group">
+                <label>Background:</label>
+                <input type="color" id="bgColor1" value="#ec4899">
+                <input type="color" id="bgColor2" value="#f472b6">
+            </div>
+            <div class="control-group">
+                <label>Text Color:</label>
+                <input type="color" id="textColor" value="#ffffff">
+            </div>
+        </div>
+        
+        <div class="preview-section">
+            <div class="preview-card">
+                <h3>16x16 (Browser Tab)</h3>
+                <canvas id="canvas16" width="16" height="16"></canvas>
+            </div>
+            <div class="preview-card">
+                <h3>32x32 (Standard)</h3>
+                <canvas id="canvas32" width="32" height="32"></canvas>
+            </div>
+            <div class="preview-card">
+                <h3>180x180 (Apple)</h3>
+                <canvas id="canvas180" width="180" height="180"></canvas>
+            </div>
+        </div>
+        
+        <div>
+            <button onclick="downloadFavicon(16)">Download 16x16</button>
+            <button onclick="downloadFavicon(32)">Download 32x32</button>
+            <button onclick="downloadFavicon(180)">Download 180x180</button>
+        </div>
+        
+        <div class="instructions">
+            <h3>📝 Installation Instructions:</h3>
+            <ol>
+                <li>Download all three sizes using the buttons above</li>
+                <li>Rename them to: <code>favicon-16x16.png</code>, <code>favicon-32x32.png</code>, <code>apple-touch-icon.png</code></li>
+                <li>Place them in your <code>public</code> folder</li>
+                <li>Update your <code>index.html</code> with the code shown below</li>
+                <li>Delete the default <code>/vite.svg</code> reference</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        function drawFavicon(size) {
+            const canvas = document.getElementById(`canvas${size}`);
+            const ctx = canvas.getContext('2d');
+            
+            const text = document.getElementById('text').value || 'DN';
+            const bgColor1 = document.getElementById('bgColor1').value;
+            const bgColor2 = document.getElementById('bgColor2').value;
+            const textColor = document.getElementById('textColor').value;
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, size, size);
+            
+            // Draw gradient background
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, bgColor1);
+            gradient.addColorStop(1, bgColor2);
+            ctx.fillStyle = gradient;
+            
+            // Rounded rectangle
+            const radius = size * 0.15;
+            ctx.beginPath();
+            ctx.moveTo(radius, 0);
+            ctx.lineTo(size - radius, 0);
+            ctx.quadraticCurveTo(size, 0, size, radius);
+            ctx.lineTo(size, size - radius);
+            ctx.quadraticCurveTo(size, size, size - radius, size);
+            ctx.lineTo(radius, size);
+            ctx.quadraticCurveTo(0, size, 0, size - radius);
+            ctx.lineTo(0, radius);
+            ctx.quadraticCurveTo(0, 0, radius, 0);
+            ctx.closePath();
+            ctx.fill();
+            
+            // Draw text
+            ctx.fillStyle = textColor;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.font = `bold ${size * 0.5}px Arial, sans-serif`;
+            ctx.fillText(text, size / 2, size / 2);
+        }
+        
+        function updateAllCanvases() {
+            drawFavicon(16);
+            drawFavicon(32);
+            drawFavicon(180);
+        }
+        
+        function downloadFavicon(size) {
+            const canvas = document.getElementById(`canvas${size}`);
+            const link = document.createElement('a');
+            const filename = size === 180 ? 'apple-touch-icon.png' : `favicon-${size}x${size}.png`;
+            link.download = filename;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+        
+        // Event listeners
+        document.getElementById('text').addEventListener('input', updateAllCanvases);
+        document.getElementById('bgColor1').addEventListener('input', updateAllCanvases);
+        document.getElementById('bgColor2').addEventListener('input', updateAllCanvases);
+        document.getElementById('textColor').addEventListener('input', updateAllCanvases);
+        
+        // Initial draw
+        updateAllCanvases();
+    </script>
+</body>
+</html>

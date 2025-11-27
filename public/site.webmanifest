@@ -1,0 +1,14 @@
+{
+  "name": "Deeksha Naik Portfolio",
+  "short_name": "DN Portfolio",
+  "icons": [
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#ec4899",
+  "background_color": "#0f172a",
+  "display": "standalone"
+}
